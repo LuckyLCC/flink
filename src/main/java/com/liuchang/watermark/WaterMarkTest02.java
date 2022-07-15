@@ -15,11 +15,11 @@ public class WaterMarkTest02 {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
         // 这里的 ClickSource()使用了之前自定义数据源小节中的 ClickSource()
-        SingleOutputStreamOperator<Event> eventSingleOutputStreamOperator = env.addSource(new ClickSource())
+         env.addSource(new ClickSource())
                 //生成水位线
                 //乱序流WatermarkStrategy.forBoundedOutOfOrderness()
-                .assignTimestampsAndWatermarks(WatermarkStrategy.<Event>forBoundedOutOfOrderness(Duration.ofSeconds(2)).withTimestampAssigner((SerializableTimestampAssigner<Event>) (event, l) -> event.getTimestamp()));
-        eventSingleOutputStreamOperator.print();
+                .assignTimestampsAndWatermarks(WatermarkStrategy.<Event>forBoundedOutOfOrderness(Duration.ofSeconds(2)).withTimestampAssigner((event, l) -> event.getTimestamp()))
+                .print();
 
         env.execute();
 

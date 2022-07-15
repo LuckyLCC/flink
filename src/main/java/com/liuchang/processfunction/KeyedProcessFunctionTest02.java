@@ -9,11 +9,11 @@ import org.apache.flink.util.Collector;
 
 import java.sql.Timestamp;
 
-public class ProcessingTimeTimerTest02 {
+public class KeyedProcessFunctionTest02 {
 
     /***
      *
-     *按键分区处理函数（KeyedProcessFunction）
+     * 按键分区处理函数（KeyedProcessFunction）
      * @param args
      * @return void
      * @author: liuchang

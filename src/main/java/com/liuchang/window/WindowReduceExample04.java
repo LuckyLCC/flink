@@ -6,6 +6,7 @@ import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -47,6 +48,7 @@ public class WindowReduceExample04 {
                     // 将数据转换成二元组，方便计算
                     return Tuple2.of(value.user, 1L);
                 })
+                .returns(Types.TUPLE(Types.STRING, Types.LONG))
                 .keyBy(r -> r.f0)
                 // 设置滚动事件时间窗口
                 .window(TumblingEventTimeWindows.of(Time.seconds(5)))
@@ -54,6 +56,7 @@ public class WindowReduceExample04 {
                     // 定义累加规则，窗口闭合时，向下游发送累加结果
                     return Tuple2.of(value1.f0, value1.f1 + value2.f1);
                 })
+                .returns(Types.TUPLE(Types.STRING, Types.LONG))
                 .print();
         env.execute();
     }

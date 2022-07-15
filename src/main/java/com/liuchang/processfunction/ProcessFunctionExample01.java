@@ -18,9 +18,9 @@ public class ProcessFunctionExample01 {
 
 
     /***
-     *基本处理函数（ProcessFunction）
+     * 基本处理函数（ProcessFunction）
      *
-     *  我们之前学习的转换算子，一般只是针对某种具体操作来定义的，能够拿到的信息比较有
+     * 我们之前学习的转换算子，一般只是针对某种具体操作来定义的，能够拿到的信息比较有
      * 限。比如 map 算子，我们实现的 MapFunction 中，只能获取到当前的数据，定义它转换之后
      * 的形式；而像窗口聚合这样的复杂操作，AggregateFunction 中除数据外，还可以获取到当前的
      * 183

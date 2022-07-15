@@ -12,7 +12,7 @@ public class TimeWindow01 {
 
     /***
      * 时间窗口
-     *
+     * 时间窗口是最常用的窗口类型，又可以细分为滚动、滑动和会话三种。
      * @param args
      * @return void
      * @author: liuchang

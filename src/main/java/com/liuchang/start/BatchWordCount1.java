@@ -1,4 +1,4 @@
-package com.liuchang;
+package com.liuchang.start;
 
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.ExecutionEnvironment;

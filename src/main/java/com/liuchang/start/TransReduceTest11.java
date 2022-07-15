@@ -1,4 +1,4 @@
-package com.liuchang;
+package com.liuchang.start;
 
 import com.liuchang.pojo.ClickSource;
 import com.liuchang.pojo.Event;

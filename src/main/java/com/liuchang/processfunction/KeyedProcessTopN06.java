@@ -34,6 +34,8 @@ public class KeyedProcessTopN06 {
      * 这显然不够高效。如果我们可以利用增量聚合函数的特性，每来一条数据就更新一次对应 url
      * 的浏览量，那么到窗口触发计算时只需要做排序输出就可以了
      *
+     * 按键分区处理函数和窗口处理函数配合使用
+     *
      * @param args
      * @return void
      * @author: liuchang
@@ -106,8 +108,7 @@ public class KeyedProcessTopN06 {
         public void open(Configuration parameters) throws Exception {
             // 从环境中获取列表状态句柄
             urlViewCountListState = getRuntimeContext().getListState(
-                    new ListStateDescriptor<UrlViewCount>("url-view-count-list",
-                            Types.POJO(UrlViewCount.class)));
+                    new ListStateDescriptor<UrlViewCount>("url-view-count-list", Types.POJO(UrlViewCount.class)));
         }
 
         @Override

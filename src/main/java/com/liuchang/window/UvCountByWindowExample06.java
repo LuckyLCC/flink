@@ -33,6 +33,10 @@ public class UvCountByWindowExample06 {
      * 窗口计算方式，这就可以用全窗口函数来实现。
      * 在 Flink 中，全窗口函数也有两种：WindowFunction 和 ProcessWindowFunction。
      *
+     * 不过我们也看到了，WindowFunction 能提供的上下文信息较少，也没有更高级的功能。
+     * 事实上，它的作用可以被 ProcessWindowFunction 全覆盖，所以之后可能会逐渐弃用。一般在
+     * 实际应用，直接使用 ProcessWindowFunction 就可以了
+     *
      * @param
      * @return
      * @author: liuchang

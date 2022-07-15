@@ -15,6 +15,9 @@ public class CountWindow02 {
     /***
      * 计数窗口
      *
+     *  计数窗口概念非常简单，本身底层是基于全局窗口（Global Window）实现的。Flink 为我
+     * 们提供了非常方便的接口：直接调用.countWindow()方法。根据分配规则的不同，又可以分为
+     * 滚动计数窗口和滑动计数窗口两类，下面我们就来看它们的具体实现。
      * @param args
      * @return void
      * @author: liuchang
@@ -29,18 +32,7 @@ public class CountWindow02 {
         //滑动计数窗口:与滚动计数窗口类似，不过需要在.countWindow()调用时传入两个参数：size 和 slide，前者表示窗口大小，后者表示滑动步长
         slideExtracted();
 
-        //全局窗口:需要注意使用全局窗口，必须自行定义触发器才能实现窗口计算，否则起不到任何作用。
-        globalExtracted();
 
-    }
-
-    private static void globalExtracted() {
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.setParallelism(1);
-        // 这里的 ClickSource()使用了之前自定义数据源小节中的 ClickSource()
-        WindowedStream<Event, String, GlobalWindow> window = env.addSource(new ClickSource())
-                .keyBy(event -> event.getUser())
-                .window(GlobalWindows.create());
     }
 
     private static void slideExtracted() {

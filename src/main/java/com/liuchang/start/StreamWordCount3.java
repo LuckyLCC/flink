@@ -1,7 +1,5 @@
-package com.liuchang;
+package com.liuchang.start;
 
-import cn.hutool.core.io.LineHandler;
-import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -13,14 +11,14 @@ import org.apache.flink.util.Collector;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class BoundedStreamWordCount2 {
+public class StreamWordCount3 {
 
     public static void main(String[] args) throws Exception {
-
         // 1. 创建流式执行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        // 2. 读取文件
-        DataStreamSource<String> lineDSS = env.readTextFile("input/words.txt");
+        // 2. 读取文本流
+        DataStreamSource<String> lineDSS = env.socketTextStream("192.168.177.20",
+                7777);
         // 3. 转换数据格式
         SingleOutputStreamOperator<Tuple2<String, Long>> wordAndOne = lineDSS
                 .flatMap((String line, Collector<String> words) -> {
@@ -29,8 +27,6 @@ public class BoundedStreamWordCount2 {
                 .returns(Types.STRING)
                 .map(word -> Tuple2.of(word, 1L))
                 .returns(Types.TUPLE(Types.STRING, Types.LONG));
-
-
         // 4. 分组
         KeyedStream<Tuple2<String, Long>, String> wordAndOneKS = wordAndOne.keyBy(t -> t.f0);
         // 5. 求和
@@ -39,5 +35,9 @@ public class BoundedStreamWordCount2 {
         result.print();
         // 7. 执行
         env.execute();
+
+//        Stream<String> stream = Arrays.stream(new String[]{"hello world"});
+//        stream.map()
+
     }
 }
