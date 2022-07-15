@@ -1,5 +1,7 @@
 package com.liuchang;
 
+import cn.hutool.core.io.LineHandler;
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -27,6 +29,7 @@ public class BoundedStreamWordCount2 {
                 .returns(Types.STRING)
                 .map(word -> Tuple2.of(word, 1L))
                 .returns(Types.TUPLE(Types.STRING, Types.LONG));
+
 
         // 4. 分组
         KeyedStream<Tuple2<String, Long>, String> wordAndOneKS = wordAndOne.keyBy(t -> t.f0);

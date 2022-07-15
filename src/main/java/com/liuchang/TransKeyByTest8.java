@@ -14,11 +14,11 @@ public class TransKeyByTest8 {
         DataStreamSource<Event> stream = env.fromElements(
                 new Event("Mary", "./home", 1000L),
                 new Event("Bob", "./cart", 2000L),
-        new Event("Bob", "./cart111", 202200L)
+                new Event("Bob", "./cart111", 202200L)
         );
         // 使用 Lambda 表达式
         KeyedStream<Event, String> keyedStream = stream.keyBy(e -> e.user);
-        keyedStream.print();
+        keyedStream.print("print");
         env.execute();
     }
 }

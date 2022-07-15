@@ -49,7 +49,7 @@ public class CountWindow02 {
         // 这里的 ClickSource()使用了之前自定义数据源小节中的 ClickSource()
         WindowedStream<Event, String, GlobalWindow> window = env.addSource(new ClickSource())
                 .keyBy(event -> event.getUser())
-                //这里.of()方法需要传入一个 Time 类型的参数 size，表示滚动窗口的大小，我们这里创建了一个长度为 5 秒的滚动窗口。
+
                 .countWindow(10,3);
     }
 
@@ -59,7 +59,7 @@ public class CountWindow02 {
         // 这里的 ClickSource()使用了之前自定义数据源小节中的 ClickSource()
         WindowedStream<Event, String, GlobalWindow> window = env.addSource(new ClickSource())
                 .keyBy(event -> event.getUser())
-                //这里.of()方法需要传入一个 Time 类型的参数 size，表示滚动窗口的大小，我们这里创建了一个长度为 5 秒的滚动窗口。
+
                 .countWindow(10);
     }
 }
