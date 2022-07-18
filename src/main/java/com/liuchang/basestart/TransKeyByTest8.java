@@ -1,7 +1,6 @@
-package com.liuchang.start;
+package com.liuchang.basestart;
 
 import com.liuchang.pojo.Event;
-import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;

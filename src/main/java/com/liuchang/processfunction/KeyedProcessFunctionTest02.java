@@ -11,15 +11,14 @@ import java.sql.Timestamp;
 
 public class KeyedProcessFunctionTest02 {
 
-    /***
+    /**
      *
-     * 按键分区处理函数（KeyedProcessFunction）
-     * @param args
-     * @return void
-     * @author: liuchang
-     * @date: 2022/7/15
-     */
-
+     * @Description: 按键分区处理函数（KeyedProcessFunction）
+     * @Author: liuchang
+     * @Date: 2022/7/18 10:19
+     * @Param: [args]
+     * @Return: void
+     **/
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);

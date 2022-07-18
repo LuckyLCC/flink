@@ -35,6 +35,9 @@ public class EventTimeTimerTest03 {
                 .print();
         env.execute();
     }
+
+
+
     // 自定义测试数据源
     public static class CustomSource implements SourceFunction<Event> {
         @Override

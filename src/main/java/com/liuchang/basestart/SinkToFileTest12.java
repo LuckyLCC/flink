@@ -1,4 +1,4 @@
-package com.liuchang.start;
+package com.liuchang.basestart;
 
 import com.liuchang.pojo.Event;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
