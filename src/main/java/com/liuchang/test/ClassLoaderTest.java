@@ -10,7 +10,10 @@ public class ClassLoaderTest {
     public static void main(String[] args) {
         ClassLoaderTest.class.getResourceAsStream("/properties/globalConfig.properties");
         ClassLoaderTest.class.getClassLoader().getResourceAsStream("properties/globalConfig.properties");
-        wwww
+
+        wwwwwwe
+                eqweqweqweq
+                qeqweqwqwe
     }
 
 }
