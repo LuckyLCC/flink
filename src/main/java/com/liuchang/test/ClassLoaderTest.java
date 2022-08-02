@@ -11,6 +11,7 @@ public class ClassLoaderTest {
         ClassLoaderTest.class.getResourceAsStream("/properties/globalConfig.properties");
         ClassLoaderTest.class.getClassLoader().getResourceAsStream("properties/globalConfig.properties");
         456
+        额热翁无
     }
 
 }
