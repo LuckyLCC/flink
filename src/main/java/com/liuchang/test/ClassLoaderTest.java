@@ -11,7 +11,7 @@ public class ClassLoaderTest {
         ClassLoaderTest.class.getResourceAsStream("/properties/globalConfig.properties");
         ClassLoaderTest.class.getClassLoader().getResourceAsStream("properties/globalConfig.properties");
         123
-                大大大无多1234 567 789 000
+                大大大无多1234 567 789 123
     }
 
 }
