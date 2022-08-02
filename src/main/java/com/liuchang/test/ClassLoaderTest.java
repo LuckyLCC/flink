@@ -11,9 +11,6 @@ public class ClassLoaderTest {
         ClassLoaderTest.class.getResourceAsStream("/properties/globalConfig.properties");
         ClassLoaderTest.class.getClassLoader().getResourceAsStream("properties/globalConfig.properties");
 
-        wwwwwwe
-                eqweqweqweq
-                qeqweqwqwe7788686ugjggikjw312321312
     }
 
 }
