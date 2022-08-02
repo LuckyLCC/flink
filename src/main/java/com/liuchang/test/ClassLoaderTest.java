@@ -10,7 +10,8 @@ public class ClassLoaderTest {
     public static void main(String[] args) {
         ClassLoaderTest.class.getResourceAsStream("/properties/globalConfig.properties");
         ClassLoaderTest.class.getClassLoader().getResourceAsStream("properties/globalConfig.properties");
-        123   456 789
+        123
+                大大大无多1234
     }
 
 }
