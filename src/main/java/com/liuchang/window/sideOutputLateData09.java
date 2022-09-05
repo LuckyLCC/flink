@@ -36,8 +36,7 @@ public class sideOutputLateData09 {
         env.setParallelism(1);
         SingleOutputStreamOperator<Event> stream = env.addSource(new ClickSource()).assignTimestampsAndWatermarks(WatermarkStrategy.<Event>forMonotonousTimestamps().withTimestampAssigner((SerializableTimestampAssigner<Event>) (element, recordTimestamp) -> element.timestamp));
         //定义标签
-        OutputTag<Event> outputTag = new OutputTag<Event>("late") {
-        };
+        OutputTag<Event> outputTag = new OutputTag<Event>("late") {};
 
         SingleOutputStreamOperator<UrlViewCount> aggregate = stream.keyBy(data -> data.url).window(SlidingEventTimeWindows.of(Time.seconds(10), Time.seconds(5)))
                 //将迟到的数据放入侧输出流
