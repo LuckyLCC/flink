@@ -18,17 +18,25 @@ public class hutoolTest {
 //        System.out.println(id);
 
 
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-ddHHmmssSSS");
+//        String dateTime = format.format(new Date());
+//
+//        System.out.println(dateTime);
+//
+//        SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
+//        SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+//        Date parse = format1.parse("20220808");
+//        String f = format2.format(parse);
+//        System.out.println(f);
+        String a = "11";
+        String b = "22";
+        if (a.equals("11")) {
+            System.out.println(a);
+        } else if (b.equals("22")) {
+            System.out.println(b);
+        }
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-ddHHmmssSSS");
-        String dateTime = format.format(new Date());
 
-        System.out.println(dateTime);
-
-        SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
-        SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
-        Date parse = format1.parse("20220808");
-        String f = format2.format(parse);
-        System.out.println(f);
 
     }
 }

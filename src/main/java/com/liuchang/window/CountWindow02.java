@@ -4,11 +4,13 @@ import com.liuchang.pojo.ClickSource;
 import com.liuchang.pojo.Event;
 import org.apache.flink.streaming.api.datastream.WindowedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.GlobalWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.GlobalWindow;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+import org.apache.flink.util.Collector;
 
 public class CountWindow02 {
 
@@ -43,6 +45,7 @@ public class CountWindow02 {
                 .keyBy(event -> event.getUser())
 
                 .countWindow(10,3);
+
     }
 
     private static void countWindow() {
